@@ -1,0 +1,45 @@
+Last updated February 10, 1999.
+
+WARNING- This driver is very much ALPHA software.  It is missing
+functionality as well as robustness.  Use at your own risk.
+
+Before installing this driver you must install perl5 (obviously) and
+the DBI module.  You may get the DBI module from
+
+   http://www.perl.com/CPAN
+
+Once you have both of those installed (and tested) just cd into the
+freetds_dbd directory and type-
+
+   make
+   make test
+   make install     
+
+The Makefile.PL is geared towards building the driver for development,
+not for production use.  It defaults to building a static perl with
+memory leak checking turned on.  
+
+If you want this for production use (see the warning above) you will
+want to turn off memory leak detection and you will probably want
+shared libaries.  Simply remove -DTRACE_ALLOCMEMORY_LEAKS from the
+$cflags variable and change $LINKTYPE to 'dynamic'.
+
+
+As of February 10, 1999 the driver fails 12 out of 45 tests.
+
+  
+Failed Test  Status Wstat Total Fail  Failed  List of failed
+-------------------------------------------------------------------------------
+t/07mydecimal10              14    2  14.29%  12-13
+t/07myfloat14.t              14    1   7.14%  13
+t/07mymoney.t     0   134    14    2  14.29%  13-14
+t/07mynulldecim              14    2  14.29%  12-13
+t/07mynullmoney   0   134    14    2  14.29%  13-14
+t/07mynullnumer              14    2  14.29%  12-13
+t/07mynullsmall   0   134    14    2  14.29%  13-14
+t/07mynumeric5_              14    2  14.29%  12-13
+t/07myreal.t                 14    1   7.14%  13
+t/07mysmallmone   0   134    14    2  14.29%  13-14
+t/09manytypes.t   0   134    11    2  18.18%  10-11
+t/11multiresult   0   134     9    3  33.33%  7-9
+Failed 12/45 test scripts, 73.33% okay. 23/538 subtests failed, 95.72% okay.

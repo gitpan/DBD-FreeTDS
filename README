@@ -1,0 +1,35 @@
+
+This is a sneak peek of a DBD module for Microsoft SQLServer and
+Sybase.  It is in the very early stages of development and many parts
+of it are not implemented yet.
+
+The main advantage of this driver is that it directly speaks the raw
+TDS protocol and does not need any third party libraries.  For more
+information about TDS see the FreeTDS web page at
+
+   http://sunsite.unc.edu/freetds/
+
+The current source code may be obtained via anonymous ftp at 
+
+   ftp://freetds.internetcds.com/pub/freetds_dbd/
+
+Status as of February 17, 1999-
+   * $dbh->login, $dbh->do are implemented.
+   
+   * $dbh->prepare is partially implemented.  (Placeholders are not 
+     implemented yet.)
+
+   * $dbh->{} is implemented for setting some attributes, but not for 
+     fetching them.
+
+   * $sth->execute is implemented and can handle multiple result sets 
+     and COMPUTE columns.
+
+   * $sth->fetchrow, $sth->fetch_hashref are implemented for most of the 
+     server datatypes.
+   
+   * $sth->finish is implemented.
+  
+   * $sth->{} will fetch the attributes 'NAME', 'NUM_OF_FIELDS', 
+     and 'more_results'.  ('more_results' is for handling multiple
+     result sets returned from a single query.)

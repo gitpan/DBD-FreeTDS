@@ -1,0 +1,10 @@
+Changes
+FreeTDS.pm
+FreeTDS.xs
+MANIFEST
+Makefile.PL
+test.pl
+dbdimp.c
+dbdimp.h
+tdslayer.h
+tdslayer.c
